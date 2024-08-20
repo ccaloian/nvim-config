@@ -754,6 +754,12 @@ local servers = {
     Lua = {
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
+      diagnostics = {
+        -- toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+        disable = { 'missing-fields' },
+        -- silence undefined global 'vim' warnings
+        globals = { 'vim' }
+      },
     },
   },
 }
