@@ -694,6 +694,28 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
+
+  -- Inlay hints (v0.10)
+  -- local toggle_inlay_hints = function()
+  --   if vim.lsp.inlay_hint.is_enabled({ bufnr }) then
+  --     vim.lsp.inlay_hint.enable(false, { bufnr })
+  --   else
+  --     vim.lsp.inlay_hint.enable(true, { bufnr })
+  --   end
+  -- end
+  --
+  -- if vim.lsp.inlay_hint then
+  --   nmap("<Space>L", toggle_inlay_hints(), "Toggle Inlay Hints")
+  -- end
+
+  if vim.lsp.inlay_hint then
+    nmap(
+      "<Space>L",
+      function() if vim.lsp.inlay_hint.is_enabled({ bufnr }) then vim.lsp.inlay_hint.enable(false, { bufnr }) else vim.lsp.inlay_hint.enable(true, { bufnr }) end end,
+      "Toggle Inlay Hints"
+    )
+  end
+
 end
 
 -- document existing key chains
