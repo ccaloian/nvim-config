@@ -331,6 +331,15 @@ require('lazy').setup({
     end
   },
 
+  -- plugin for vim.ui.select and vim.ui.input
+  {
+    'stevearc/dressing.nvim',
+    opts = {},
+  },
+
+  -- telescope-ui-select plugin for vim.ui.select and vim.ui.input
+  'nvim-telescope/telescope-ui-select.nvim',
+  
 }, {})
 
 -- Telescop file browser setup
